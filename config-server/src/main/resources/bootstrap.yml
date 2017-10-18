@@ -3,14 +3,14 @@ spring:
     # 配置文件就是用这个来做文件名的，要对应的哦。
     name: lession-2-config-server
   profiles:
-    active: dev,git
+    active: native
   cloud:
     config:
       server:
         # 本地文件
         native:
           # 用本地文件夹存储配置，仅作配置示例，没起作用。要想起作用，将上面的 active中git 改为 native
-          searchLocations: file:D:\\cloud\\dongnao\\configrepo
+          searchLocations: F:/spring-cloud-projects/config-demos/config-repo
         # git仓库 gitlab地址
         git:
           # 记得在先gitlab上创建一个对应的project

@@ -12,6 +12,7 @@ management:
 security:
   # 这个接口不做用户名密码校验, /monitor接收git刷新通知
   ignored: /monitor
+  #访问配置中心接口的帐号密码
   user:
     name: user
     password: 12345678
