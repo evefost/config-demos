@@ -1,0 +1,32 @@
+# eureka是必须的
+
+
+spring:
+  profiles:
+    # 这里的意思是启用dev环境
+    active: dev
+
+---
+spring:
+  profiles: dev
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka
+  instance:
+    preferIpAddress: true
+    
+---
+spring:
+  profiles: prod
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      # 这里写成eureka1，是因为我修改系统的hosts， 127.0.0.1 eureka1
+      defaultZone: http://eureka1:8761/eureka
+  instance:
+    preferIpAddress: true
