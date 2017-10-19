@@ -23,7 +23,7 @@ encrypt:
 # rabbitmq的地址 用户名 密码
 spring:
   rabbitmq:
-    host: 192.168.99.100
+    host: 192.168.10.195
     username: guest
     password: guest
   profiles:

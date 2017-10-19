@@ -3,7 +3,7 @@ spring:
     # 配置文件就是用这个来做文件名的，要对应的哦。
     name: lession-2-config-server
   profiles:
-    active: native
+    active: dev,git
   cloud:
     config:
       server:
@@ -14,24 +14,24 @@ spring:
         # git仓库 gitlab地址
         git:
           # 记得在先gitlab上创建一个对应的project
-          uri: http://192.168.99.100:18080/root/project1.git
+          uri: http://192.168.10.195:8083/root/project1.git
           search-paths: /
           username: root
-          password: 12345678
-          repos: 
-            # 不同环境不同的库，这里的话，只有当应用中的spring.profiles.active=staging的时候才生效
-            lession-2-sms-sys-staging:
-              pattern: '*/staging'
-              # 记得在先gitlab上创建一个对应的project
-              uri: http://192.168.99.100:18080/root/lession-2-config-repo-staging.git
-            # 不同项目不同库
-            lession-2-sms-webmvc: 
-              pattern: 
-                # 这里是根据服务名称匹配的spring.application.name
-                - lession-2-sms-webmvc/**
-                - lession-2-sms-webmvc*
-              # 这里面的是本地git仓库的，不知道配置本地git仓库的也可以像上面一样配置成远程git地址
-              uri: file:D:\cloud\dongnao\config-repo
+          password: Xy1234567
+#          repos:
+#            # 不同环境不同的库，这里的话，只有当应用中的spring.profiles.active=staging的时候才生效
+#            lession-2-sms-sys-staging:
+#              pattern: '*/staging'
+#              # 记得在先gitlab上创建一个对应的project
+#              uri: http://192.168.99.100:18080/root/lession-2-config-repo-staging.git
+#            # 不同项目不同库
+#            lession-2-sms-webmvc:
+#              pattern:
+#                # 这里是根据服务名称匹配的spring.application.name
+#                - lession-2-sms-webmvc/**
+#                - lession-2-sms-webmvc*
+#              # 这里面的是本地git仓库的，不知道配置本地git仓库的也可以像上面一样配置成远程git地址
+#              uri: file:D:\cloud\dongnao\config-repo
         # 加解密
         encrypt:
           enabled: true
